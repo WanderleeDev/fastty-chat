@@ -235,7 +235,9 @@ yarn.lock
 .pnpm-debug.log
 .next/
 out/
+next-env.d.ts
 coverage/
+.vercel/
 *.tsbuildinfo
 
 # ---- General/OS/Editor ----
