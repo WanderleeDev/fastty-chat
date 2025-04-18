@@ -1,6 +1,12 @@
 {
   "name": "fastty-chat",
   "module": "index.ts",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "bun@1.1.42",
   "type": "module",
   "scripts": {
     "dev": "bunx turbo run dev",
