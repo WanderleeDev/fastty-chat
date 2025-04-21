@@ -14,7 +14,8 @@
 }
 .embla__container {
   display: flex;
-  touch-action: pan-y pinch-zoom;
+  touch-action: pan-x pinch-zoom;
+  will-change: transform;
   /* margin-left: calc(var(--slide-spacing) * -1); */
 }
 .embla__slide {

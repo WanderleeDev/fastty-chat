@@ -1,7 +1,7 @@
-import ActiveRooms from "@/features/Room/components/ActiveRooms";
-import FeaturedRooms from "@/features/Room/components/FeaturedRooms";
+import ActiveRooms from "@/features/room/components/ActiveRooms";
+import FeaturedRooms from "@/features/room/components/FeaturedRooms";
 import Overview from "@/components/shared/Overview";
-import { Stack } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 import CategoryTabs from "@/features/categories/components/CategoryTabs";
 import { defineMetadata } from "./utils/defineMetada";
 
@@ -18,7 +18,9 @@ export default function Home() {
       gap="max(2rem,5vw)"
       userSelect={"none"}
     >
-      <CategoryTabs md={{ display: "none" }} />
+      <Box md={{ display: "none" }}>
+        <CategoryTabs />
+      </Box>
       <FeaturedRooms />
       <Overview />
       <ActiveRooms />
