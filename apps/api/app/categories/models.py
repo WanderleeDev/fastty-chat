@@ -3,7 +3,7 @@ from sqlmodel import Field, SQLModel
 from uuid import UUID, uuid4
 
 class CategoryBase(SQLModel):
-    name: str = Field(min_length=3, max_length=50)
+    name: str = Field(min_length=3, max_length=50, unique=True)
 
 
 class Category(BaseModel,CategoryBase, table=True):

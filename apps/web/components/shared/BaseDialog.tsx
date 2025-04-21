@@ -31,12 +31,7 @@ export default function BaseDialog({
 
   return (
     <HStack wrap="wrap" gap="4">
-      <Dialog.Root
-        placement={"center"}
-        motionPreset="slide-in-bottom"
-        lazyMount={true}
-        unmountOnExit={true}
-      >
+      <Dialog.Root placement={"center"} motionPreset="slide-in-bottom">
         <Dialog.Trigger asChild w={"full"}>
           {triggerButton}
         </Dialog.Trigger>

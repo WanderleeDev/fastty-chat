@@ -4,7 +4,7 @@ from app.users.models import User, UserCreate, UserUpdate
 from app.core.models import ResponseMessage
 from app.users.services import get_user_service, get_users_service, create_user_service, update_user_service, delete_user_service
 from typing import List
-import uuid
+from uuid import UUID
 
 
 user_router = APIRouter()
@@ -19,7 +19,7 @@ async def read_users(db: SessionDep, offset: int = 0, limit: int = 10):
 
 
 @user_router.get("/{user_id}", response_model=User, status_code=200)
-async def read_user(user_id: uuid.UUID, db: SessionDep):
+async def read_user(user_id: UUID, db: SessionDep):
     """
         Return a user by ID
     """
@@ -35,7 +35,7 @@ async def create_user(user_data: UserCreate, db: SessionDep):
 
 
 @user_router.patch("/{user_id}", status_code=200, response_model=ResponseMessage)
-async def update_user(user_id: uuid.UUID, user_data: UserUpdate, db: SessionDep):
+async def update_user(user_id: UUID, user_data: UserUpdate, db: SessionDep):
     """
         Update an existing user
     """
@@ -43,7 +43,7 @@ async def update_user(user_id: uuid.UUID, user_data: UserUpdate, db: SessionDep)
 
 
 @user_router.delete("/{user_id}", status_code=200, response_model=ResponseMessage)
-async def delete_user(user_id: uuid.UUID, db: SessionDep):
+async def delete_user(user_id: UUID, db: SessionDep):
     """
         Delete an existing user
     """
