@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { PiLightningSlashFill } from "react-icons/pi";
 
 export default function Error({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   error,
 }: {
   error: Error & { digest?: string };
