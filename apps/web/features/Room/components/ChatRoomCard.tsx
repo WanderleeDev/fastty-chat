@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box, Flex, Text } from "@chakra-ui/react/";
+import { Avatar, Badge, Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { RoomInfo } from "../interfaces/RoomInfo.interface";
 

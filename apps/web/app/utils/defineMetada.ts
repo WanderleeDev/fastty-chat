@@ -24,6 +24,10 @@ export function defineMetadata({
   return {
     title,
     description,
+    metadataBase: new URL("https://fastty-chat.vercel.app"),
+    alternates: {
+      canonical: "/",
+    },
     robots: { index, follow },
     openGraph: {
       title,
@@ -31,7 +35,7 @@ export function defineMetadata({
       type: "website",
       locale: "en",
       siteName: "FasttyChat",
-      url: "https://www.fastty.com",
+      url: "https://fastty-chat.vercel.app/",
       images: [image],
     },
     twitter: {

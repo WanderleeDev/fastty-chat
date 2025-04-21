@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Provider } from "@/components/ui/provider";
+import dynamic from "next/dynamic";
 import { Box } from "@chakra-ui/react";
 import Header from "@/components/Common/Header";
 import Footer from "@/components/Common/Footer";
@@ -18,6 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = defineMetadata({});
 
+const Provider = dynamic(
+  () => import("@/components/ui/provider").then((mod) => mod.Provider),
+  { ssr: false }
+);
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,13 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="canonical"
-          href="https://example.com/blog/original-post"
-          key="canonical"
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
