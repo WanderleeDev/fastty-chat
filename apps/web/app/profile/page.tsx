@@ -1,6 +1,3 @@
-"use client";
-
-import { useColorMode } from "@/components/ui/color-mode";
 import {
   Box,
   VStack,
@@ -38,18 +35,11 @@ const MENU_ITEMS = [
 ];
 
 export default function ProfilePage() {
-  const { colorMode } = useColorMode();
-
   return (
     <Box pt="4">
       <VStack spaceY="6" align="stretch">
         <VStack spaceY="4" align="center">
-          <Avatar.Root
-            size="2xl"
-            borderWidth="4px"
-            borderColor={colorMode === "dark" ? "gray.700" : "white"}
-            shadow="lg"
-          >
+          <Avatar.Root size="2xl" borderWidth="4px" shadow="lg">
             <Avatar.Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" />
           </Avatar.Root>
           <Box textAlign="center">
@@ -64,25 +54,31 @@ export default function ProfilePage() {
         </VStack>
 
         <SimpleGrid columns={3} scaleY="4">
-          {PROFILE_STATS.map((stat) => (
-            <Card.Root key={stat.label} variant="outline">
-              <CardBody>
-                <Stat.Root>
-                  <Stat.Label color="gray.500">
-                    <HStack spaceY="1">
-                      <Icon as={stat.icon} size="md" />
-                      <Text>{stat.label}</Text>
-                    </HStack>
-                  </Stat.Label>
-                  <FormatNumber
-                    value={+stat.value}
-                    notation="compact"
-                    compactDisplay="short"
-                  />
-                </Stat.Root>
-              </CardBody>
-            </Card.Root>
-          ))}
+          {PROFILE_STATS.map((stat) => {
+            const IconComponent = stat.icon;
+
+            return (
+              <Card.Root key={stat.label} variant="outline">
+                <CardBody>
+                  <Stat.Root>
+                    <Stat.Label color="gray.500">
+                      <HStack spaceY="1">
+                        <Icon size="md">
+                          <IconComponent />
+                        </Icon>
+                        <Text>{stat.label}</Text>
+                      </HStack>
+                    </Stat.Label>
+                    <FormatNumber
+                      value={+stat.value}
+                      notation="compact"
+                      compactDisplay="short"
+                    />
+                  </Stat.Root>
+                </CardBody>
+              </Card.Root>
+            );
+          })}
         </SimpleGrid>
 
         <VStack spaceY="2" align="stretch">
@@ -92,10 +88,6 @@ export default function ProfilePage() {
               variant="ghost"
               justifyContent="flex-start"
               h="14"
-              // leftIcon={<Icon as={item.icon} boxSize={5} />}
-              _hover={{
-                bg: colorMode === "dark" ? "gray.700" : "gray.100",
-              }}
             >
               {item.label}
             </Button>

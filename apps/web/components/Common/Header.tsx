@@ -1,8 +1,8 @@
 import { Flex, FlexProps, Heading } from "@chakra-ui/react";
 import MainLogo from "../shared/MainLogo";
 import DrawerMenu from "./DrawerMenu";
-import ButtonDarkMode from "../shared/ButtonDarkMode";
 import Link from "next/link";
+import ButtonThemeMode from "@/components/shared/ButtonThemeMode";
 
 export default function Header({ ...props }: FlexProps) {
   return (
@@ -26,7 +26,7 @@ export default function Header({ ...props }: FlexProps) {
         </Link>
       </Heading>
       <Flex gap="2">
-        <ButtonDarkMode />
+        <ButtonThemeMode />
         <DrawerMenu />
       </Flex>
     </Flex>

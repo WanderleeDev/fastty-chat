@@ -1,10 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
 import { Box } from "@chakra-ui/react";
 import Header from "@/components/Common/Header";
 import Footer from "@/components/Common/Footer";
 import { defineMetadata } from "./utils/defineMetada";
+import Provider from "./provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,11 +17,6 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = defineMetadata({});
-
-const Provider = dynamic(
-  () => import("@/components/ui/provider").then((mod) => mod.Provider),
-  { ssr: false }
-);
 
 export default function RootLayout({
   children,
