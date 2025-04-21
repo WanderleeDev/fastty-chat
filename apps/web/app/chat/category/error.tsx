@@ -33,7 +33,7 @@ export default function Error({
         Something went wrong!
       </Heading>
 
-      <Text>{error.message}</Text>
+      <Text>The page you are trying to access does not exist</Text>
       <Button
         variant="surface"
         colorPalette={"teal"}
