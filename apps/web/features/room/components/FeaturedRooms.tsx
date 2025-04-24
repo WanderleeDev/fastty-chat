@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { BiUser } from "react-icons/bi";
 import EmblaWrapper from "../../../components/shared/EmblaWrapper";
 import Link from "next/link";
@@ -78,7 +78,7 @@ export default function FeaturedRooms() {
       </Heading>
 
       <EmblaWrapper gap={4} md={{ gap: 8 }} lg={{ gap: 10 }}>
-        {FEATURED_ROOMS.map(({ id, image, participants, title, category }) => (
+        {FEATURED_ROOMS.map(({ id, participants, title, category }) => (
           <Link
             key={id}
             href={{
@@ -107,13 +107,14 @@ export default function FeaturedRooms() {
                 md={{ h: "170px" }}
                 lg={{ h: "220px" }}
               >
-                <Image
+                {/* <Image
                   src={image}
                   alt={title}
                   objectFit="cover"
                   w="100%"
+                  loading="lazy"
                   h="100%"
-                />
+                /> */}
                 <Box
                   position="absolute"
                   bottom="0"
