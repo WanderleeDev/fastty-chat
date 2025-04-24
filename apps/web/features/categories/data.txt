@@ -1,0 +1,11 @@
+// const CATEGORIES: CategoryTab[] = [
+//   { id: "todo", name: "All" },
+//   { id: "gaming", name: "Gaming" },
+//   { id: "musica", name: "Music" },
+//   { id: "deportes", name: "Sports" },
+//   { id: "tech", name: "Tech" },
+//   { id: "arte", name: "Art" },
+//   { id: "idiomas", name: "Languages" },
+//   { id: "cine", name: "Movies" },
+//   { id: "libros", name: "Books" },
+// ];

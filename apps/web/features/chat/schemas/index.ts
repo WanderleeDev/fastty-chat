@@ -12,8 +12,13 @@ export const createChatFormSchema = z.object({
   isPrivate: z.boolean(),
 });
 
+export const chatBoxSchema = z.object({
+  message: z.string().min(1, "El mensaje no puede estar vacío"),
+});
+
 export type JoinChatFormValues = z.infer<typeof joinChatFormSchema>;
 export type CreateChatFormValues = z.infer<typeof createChatFormSchema>;
+export type ChatBoxValues = z.infer<typeof chatBoxSchema>;
 
 export const joinChatDefaultValues: JoinChatFormValues = {
   pin: Array(4).fill(""),

@@ -1,84 +1,43 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+"use client";
+
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { BiUser } from "react-icons/bi";
 import EmblaWrapper from "../../../components/shared/EmblaWrapper";
 import Link from "next/link";
-import { FeaturedRoom } from "../interfaces/FeaturedRoom.interface";
-
-const FEATURED_ROOMS: FeaturedRoom[] = [
-  {
-    id: 1,
-    title: "Gaming Zone",
-    image: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
-    category: "gaming",
-    participants: 156,
-  },
-  {
-    id: 2,
-    title: "Música en Vivo",
-    image: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
-    category: "music",
-    participants: 89,
-  },
-  {
-    id: 3,
-    title: "Tech Talks",
-    image: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg",
-    category: "tech",
-    participants: 124,
-  },
-  {
-    id: 4,
-    title: "Arte Digital",
-    image: "https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg",
-    category: "art",
-    participants: 67,
-  },
-  {
-    id: 5,
-    title: "Book Club",
-    image: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg",
-    category: "book",
-    participants: 92,
-  },
-  {
-    id: 6,
-    title: "Fitness & Wellness",
-    image: "https://images.pexels.com/photos/1316295/pexels-photo-1316295.jpeg",
-    category: "fitness",
-    participants: 145,
-  },
-  {
-    id: 7,
-    title: "Cooking Corner",
-    image: "https://images.pexels.com/photos/1316366/pexels-photo-1316366.jpeg",
-    category: "cooking",
-    participants: 78,
-  },
-  {
-    id: 8,
-    title: "Language Exchange",
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
-    category: "language",
-    participants: 112,
-  },
-  {
-    id: 9,
-    title: "Film Discussion",
-    image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-    category: "film",
-    participants: 84,
-  },
-];
+import Picture from "@/components/shared/Picture";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { roomsOptions } from "../services";
+import AlertCustom from "@/components/shared/AlertCustom";
 
 export default function FeaturedRooms() {
+  const {
+    data: { content, error, isSuccess },
+    refetch,
+    isError,
+  } = useSuspenseQuery(roomsOptions);
+
+  const hasError = !isSuccess || error || !content || isError;
+
+  if (hasError) {
+    return (
+      <AlertCustom
+        alertTitle="Failed to obtain the top rooms"
+        status="error"
+        alertMessage={error}
+      >
+        <Button onClick={() => refetch()}>Retry</Button>
+      </AlertCustom>
+    );
+  }
+
   return (
     <Box>
       <Heading as="h2" fontSize="xl" fontWeight="bold" mb="4">
-        Salas Destacadas
+        Featured Rooms
       </Heading>
 
       <EmblaWrapper gap={4} md={{ gap: 8 }} lg={{ gap: 10 }}>
-        {FEATURED_ROOMS.map(({ id, participants, title, category }) => (
+        {content.map(({ id, image, participants, title, category }) => (
           <Link
             key={id}
             href={{
@@ -107,14 +66,17 @@ export default function FeaturedRooms() {
                 md={{ h: "170px" }}
                 lg={{ h: "220px" }}
               >
-                {/* <Image
-                  src={image}
+                <Picture
+                  sources={[
+                    { mediaWidth: 768, srcSet: image },
+                    { mediaWidth: 1024, srcSet: image },
+                  ]}
                   alt={title}
-                  objectFit="cover"
-                  w="100%"
+                  src={image}
+                  width="100%"
+                  height="100%"
                   loading="lazy"
-                  h="100%"
-                /> */}
+                />
                 <Box
                   position="absolute"
                   bottom="0"

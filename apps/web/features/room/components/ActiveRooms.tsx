@@ -7,8 +7,7 @@ const ACTIVE_ROOMS: RoomInfo[] = [
     id: 1,
     title: "Gamers Unite",
     lastMessage: "¡Nueva partida comenzando!",
-    avatar:
-      "https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg",
+    avatar: "",
     time: "12:30",
     unreadCount: 3,
   },
@@ -16,8 +15,7 @@ const ACTIVE_ROOMS: RoomInfo[] = [
     id: 2,
     title: "Música y Más",
     lastMessage: "Compartiendo playlist del día",
-    avatar:
-      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+    avatar: "",
     time: "11:45",
     unreadCount: 1,
   },
@@ -25,8 +23,7 @@ const ACTIVE_ROOMS: RoomInfo[] = [
     id: 3,
     title: "Tech Talk",
     lastMessage: "¿Alguien probó el nuevo iOS?",
-    avatar:
-      "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg",
+    avatar: "",
     time: "10:20",
     unreadCount: 0,
   },

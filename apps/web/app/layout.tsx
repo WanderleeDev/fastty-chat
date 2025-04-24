@@ -1,20 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { Box } from "@chakra-ui/react";
 import Header from "@/components/Common/Header";
 import Footer from "@/components/Common/Footer";
-import { defineMetadata } from "./utils/defineMetada";
+import { defineMetadata } from "../utils/defineMetada";
 import Provider from "./provider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = defineMetadata({});
 
@@ -25,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`antialiased`}>
         <Provider>
           <Box
             mx="auto"

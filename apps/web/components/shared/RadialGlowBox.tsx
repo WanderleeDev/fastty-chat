@@ -6,8 +6,9 @@ export default function RadialGlowBox({
   ...props
 }: PropsWithChildren & BoxProps) {
   return (
-    <Box position="relative" zIndex={-10} {...props}>
+    <Box position="relative" {...props}>
       <Box
+        zIndex={-10}
         pointerEvents={"none"}
         userSelect={"none"}
         style={{

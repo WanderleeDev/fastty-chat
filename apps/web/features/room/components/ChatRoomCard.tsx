@@ -27,7 +27,9 @@ export default function ChatRoomCard({
       }}
     >
       <Avatar.Root size="md" mr="3">
-        <Avatar.Image src={avatar} alt={`Cover of the room:  ${title}`} />
+        {avatar && (
+          <Avatar.Image src={avatar} alt={`Cover of the room:  ${title}`} />
+        )}
         <Avatar.Fallback name={title} />
       </Avatar.Root>
 
