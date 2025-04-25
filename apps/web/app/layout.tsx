@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import Header from "@/components/Common/Header";
-import Footer from "@/components/Common/Footer";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 import { defineMetadata } from "../utils/defineMetada";
 import Provider from "./provider";
 

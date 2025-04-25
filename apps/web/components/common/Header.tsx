@@ -12,7 +12,6 @@ export default function Header({ ...props }: FlexProps) {
       alignItems="center"
       justifyContent="space-between"
       bgColor="teal.400"
-      // bg={colorMode === "dark" ? "gray.800" : "brand.500"}
       color="white"
       position="sticky"
       top="0"

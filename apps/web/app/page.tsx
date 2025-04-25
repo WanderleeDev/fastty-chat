@@ -1,6 +1,5 @@
-import ActiveRooms from "@/features/room/components/ActiveRooms";
 import FeaturedRooms from "@/features/room/components/FeaturedRooms";
-import Overview from "@/components/Common/Overview";
+import Overview from "@/components/common/Overview";
 import { Stack } from "@chakra-ui/react";
 import CategoryTabs from "@/features/categories/components/CategoryTabs";
 import { defineMetadata } from "../utils/defineMetada";
@@ -9,6 +8,7 @@ import { roomsOptions } from "@/features/room/services";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { Suspense } from "react";
 import FeaturedRoomSkeleton from "@/features/room/components/FeaturedRoomSkeleton";
+import WhyChooseUs from "@/components/common/WhyChooseUs";
 
 export const metadata = defineMetadata({
   titlePage: "Chat App",
@@ -36,7 +36,8 @@ export default async function Home() {
       </HydrationBoundary>
 
       <Overview />
-      <ActiveRooms />
+
+      <WhyChooseUs />
     </Stack>
   );
 }
