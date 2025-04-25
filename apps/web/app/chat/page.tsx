@@ -90,7 +90,6 @@ export default function ChatPage() {
     <>
       <HeaderChat category="Gaming" participants={3} />
 
-      {/* Messages */}
       <VStack flex="1" overflowY="auto" p="4">
         {messages.map((message) => (
           <Flex
@@ -119,13 +118,10 @@ export default function ChatPage() {
         ))}
       </VStack>
 
-      {/* Input */}
       <HStack p="4" borderTopWidth="1px">
         <Input
           placeholder="Escribe un mensaje..."
           value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          onKeyUp={}
           onKeyPress={handleKeyPress}
           border="none"
         />

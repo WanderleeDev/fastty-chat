@@ -1,5 +1,7 @@
+"use client";
+
 import { HStack, Input, IconButton } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { BiSend } from "react-icons/bi";
 
 export default function MessageInput() {
@@ -7,7 +9,6 @@ export default function MessageInput() {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage();
     }
   };
 
@@ -17,12 +18,11 @@ export default function MessageInput() {
         placeholder="Escribe un mensaje..."
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
-        onKeyUp={}
         onKeyPress={handleKeyPress}
         border="none"
       />
 
-      <IconButton onClick={handleSendMessage} disabled={!newMessage.trim()}>
+      <IconButton disabled={!newMessage.trim()}>
         <BiSend />
       </IconButton>
     </HStack>
