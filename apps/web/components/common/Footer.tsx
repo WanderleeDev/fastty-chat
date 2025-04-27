@@ -9,8 +9,9 @@ import {
 import MobileNavigation from "./MobileNavigation";
 import MainLogo from "../shared/MainLogo";
 import Link from "next/link";
-import { BiLogoFacebookCircle, BiLogoInstagram, BiX } from "react-icons/bi";
-
+import Facebook from "../icons/Facebook";
+import Instagram from "../icons/Instagram";
+import X from "../icons/X";
 interface SocialMedia {
   href: string;
   label: string;
@@ -21,17 +22,17 @@ const FOOTER_LINKS: SocialMedia[] = [
   {
     href: "https://facebook.com",
     label: "Facebook",
-    icon: <BiLogoFacebookCircle />,
+    icon: <Facebook />,
   },
   {
     href: "https://instagram.com",
     label: "Instagram",
-    icon: <BiLogoInstagram />,
+    icon: <Instagram />,
   },
   {
     label: "Twitter",
     href: "https://x.com/X.",
-    icon: <BiX />,
+    icon: <X />,
   },
 ];
 

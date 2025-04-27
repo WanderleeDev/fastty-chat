@@ -1,10 +1,10 @@
+import CheckBoxTree from "@/components/icons/CheckBoxTree";
 import {
   EmptyState,
   Icon,
   VStack,
   EmptyStateRootProps,
 } from "@chakra-ui/react";
-import { GiCheckboxTree } from "react-icons/gi";
 
 interface Props extends EmptyStateRootProps {
   title: string;
@@ -22,7 +22,7 @@ export default function EmptySection({
       <EmptyState.Content>
         <EmptyState.Indicator>
           <Icon fontSize={"5rem"}>
-            <GiCheckboxTree />
+            <CheckBoxTree />
           </Icon>
         </EmptyState.Indicator>
         <VStack textAlign="center">

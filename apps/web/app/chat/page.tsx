@@ -21,6 +21,7 @@ interface Message {
 }
 
 import HeaderChat from "@/features/chat/components/HeaderChat";
+import Send from "@/components/icons/Send";
 
 const EXAMPLE_MESSAGES: Message[] = [];
 // [
@@ -127,7 +128,7 @@ export default function ChatPage() {
         />
 
         <IconButton onClick={handleSendMessage} disabled={!newMessage.trim()}>
-          <BiSend />
+          <Send />
         </IconButton>
       </HStack>
     </>

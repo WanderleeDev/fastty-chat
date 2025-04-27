@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import React, { PropsWithChildren, useState } from "react";
-import { BiChevronsUp, BiDotsHorizontalRounded } from "react-icons/bi";
+// import { BiChevronsUp, BiDotsHorizontalRounded } from "react-icons/bi";
 
 interface Props {
   message: string;
@@ -16,7 +16,6 @@ const RANGE = 150;
 
 export function GlobeTextWithState({ message, timestamp }: Props) {
   const [text, setText] = useState(truncateText(message));
-  const [isTruncated, setIsTruncated] = useState(false);
   const hasTruncate = message.trim().length > RANGE;
   const truncateToggle = () => {
     console.log(text);
@@ -42,7 +41,7 @@ export function GlobeTextWithState({ message, timestamp }: Props) {
         onClick={truncateToggle}
         aria-label={hasTruncate ? "show more" : "show less"}
       >
-        {hasTruncate ? <BiDotsHorizontalRounded /> : <BiChevronsUp />}
+        {/* {hasTruncate ? <BiDotsHorizontalRounded /> : <BiChevronsUp />} */}
       </Button>
     </GlobeText>
   );

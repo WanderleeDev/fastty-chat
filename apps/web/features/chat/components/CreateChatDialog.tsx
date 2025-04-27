@@ -9,8 +9,9 @@ import {
 } from "../schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import BaseDialog from "@/components/shared/BaseDialog";
-import { Button, Field, Input, Switch } from "@chakra-ui/react";
-import { BiChat } from "react-icons/bi";
+import { Button, Field, Icon, Input, Switch } from "@chakra-ui/react";
+import GlobeMessage from "@/components/icons/GlobeMessage";
+import Send from "@/components/icons/Send";
 
 export default function CreateChatDialog() {
   const {
@@ -93,7 +94,9 @@ export default function CreateChatDialog() {
           size={"xl"}
         >
           Create Chat Room
-          <BiChat />
+          <Icon>
+            <GlobeMessage />
+          </Icon>
         </Button>
       }
       submitButton={
@@ -107,7 +110,9 @@ export default function CreateChatDialog() {
           size={"xl"}
         >
           Create
-          <BiChat />
+          <Icon>
+            <Send />
+          </Icon>
         </Button>
       }
     />
