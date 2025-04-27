@@ -1,11 +1,10 @@
 "use client";
 
-import { ImgHTMLAttributes, useState } from "react";
-import { Box, Image } from "@chakra-ui/react";
+import { useState } from "react";
+import { Box, Image, ImageProps } from "@chakra-ui/react";
 import BoxGradient from "./BoxGradient";
 
-interface PictureProps
-  extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt"> {
+interface PictureProps extends Omit<ImageProps, "src" | "alt"> {
   sources: Source[];
   alt: string;
   src: string;
@@ -28,6 +27,8 @@ export default function Picture({ sources, alt, src, ...props }: PictureProps) {
           fontWeight="bold"
           fontSize="2xl"
           WebkitTextStroke=".03rem black"
+          width={props.width}
+          height={props.height}
           md={{
             fontSize: "3xl",
             WebkitTextStroke: ".05rem black",

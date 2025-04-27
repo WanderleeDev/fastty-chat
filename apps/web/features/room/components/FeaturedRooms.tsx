@@ -40,6 +40,7 @@ export default function FeaturedRooms() {
         {content.map(({ id, image, participants, title, category }) => (
           <Link
             key={id}
+            aria-label={`go to room ${title}`}
             href={{
               pathname: "/chat/category",
               query: {

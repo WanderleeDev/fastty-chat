@@ -9,6 +9,7 @@ import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { Suspense } from "react";
 import FeaturedRoomSkeleton from "@/features/room/components/FeaturedRoomSkeleton";
 import WhyChooseUs from "@/components/common/WhyChooseUs";
+import LastCallToAction from "@/components/common/LastCallToAction";
 
 export const metadata = defineMetadata({
   titlePage: "Chat App",
@@ -28,16 +29,14 @@ export default async function Home() {
       userSelect={"none"}
     >
       <CategoryTabs />
-
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Suspense fallback={<FeaturedRoomSkeleton />}>
           <FeaturedRooms />
         </Suspense>
       </HydrationBoundary>
-
       <Overview />
-
       <WhyChooseUs />
+      <LastCallToAction />
     </Stack>
   );
 }

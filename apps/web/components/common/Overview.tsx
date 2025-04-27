@@ -1,8 +1,9 @@
-import { Flex, Text, Icon } from "@chakra-ui/react";
+import { Flex, Icon } from "@chakra-ui/react";
 import JoinChatDialog from "../../features/chat/components/JoinChatDialog";
 import { PiLightningFill } from "react-icons/pi";
 import CreateChatDialog from "@/features/chat/components/CreateChatDialog";
 import RadialGlowBox from "../shared/RadialGlowBox";
+import TextGradient from "../shared/TextGradient";
 
 export default function Overview() {
   return (
@@ -13,24 +14,13 @@ export default function Overview() {
       md={{ my: 0 }}
       h={"25vw"}
     >
-      <Text
-        fontSize={"5xl"}
-        display={"none"}
-        position={"relative"}
-        maxW={"50vw"}
-        fontWeight={"bold"}
-        background={"linear-gradient(to bottom,#a6f8eb,#33a09e,#204a4d)"}
-        letterSpacing={"wide"}
-        bgClip="text"
-        lg={{ display: "block" }}
-        xl={{ fontSize: "6xl" }}
-      >
+      <TextGradient display={"none"} lg={{ display: "block" }}>
         Connect quickly{" "}
         <Icon mr={2} aria-hidden="true">
           <PiLightningFill color="yellow" transform="scale(1.2)" />
         </Icon>
         and share in real time
-      </Text>
+      </TextGradient>
 
       <RadialGlowBox
         display="flex"

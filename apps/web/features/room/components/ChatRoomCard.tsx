@@ -35,7 +35,7 @@ export default function ChatRoomCard({
 
       <Box flex="1">
         <Flex justifyContent="space-between" alignItems="center">
-          <Text fontWeight="semibold" fontSize="md">
+          <Text fontWeight="semibold" fontSize="md" color="gray.900">
             {title}
           </Text>
           <Text fontSize="xs" color="gray.500">
@@ -51,10 +51,10 @@ export default function ChatRoomCard({
       {unreadCount > 0 && (
         <Badge
           borderRadius="full"
-          colorScheme="red"
           minW="5"
           textAlign="center"
           py="0.5"
+          colorPalette="green"
         >
           {unreadCount}
         </Badge>
