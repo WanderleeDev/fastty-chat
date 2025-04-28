@@ -4,7 +4,7 @@ import { emailRegex, passwordRegex } from "@/utils/regexObj";
 export const loginFormSchema = z.object({
   email: z
     .string()
-    .min(1, { message: "email is required" })
+    .min(1, { message: "Email is required" })
     .email({ message: "Invalid email" })
     .regex(emailRegex, {
       message: "Invalid email format. Example: example@domain.com",

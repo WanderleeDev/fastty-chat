@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import thumbnail from "@/public/thumbnail-page.webp";
 
 type DefineMetadataProps = {
   titlePage: string;
@@ -12,7 +11,7 @@ type DefineMetadataProps = {
 export function defineMetadata({
   titlePage,
   descriptionPage,
-  image = thumbnail.src,
+  image = "https://www.dropbox.com/scl/fi/sifttoyagx12crbzd1hm5/thumbnail-page.webp?rlkey=16pzuniyhh384hhxce7sqkewd&st=xx4nhwsh&raw=1",
   index = true,
   follow = true,
 }: Partial<DefineMetadataProps>): Metadata {
