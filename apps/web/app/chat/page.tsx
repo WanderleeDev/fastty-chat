@@ -1,28 +1,16 @@
 "use client";
 
-import {
-  VStack,
-  HStack,
-  Input,
-  IconButton,
-  Avatar,
-  Flex,
-} from "@chakra-ui/react";
-import { useState } from "react";
-import { BiSend } from "react-icons/bi";
-import { GlobeTextWithState } from "@/features/chat/components/GlobeText";
-
-interface Message {
-  id: number;
-  text: string;
-  sender: string;
-  timestamp: string;
-  avatar: string;
-}
+// interface Message {
+//   id: number;
+//   text: string;
+//   sender: string;
+//   timestamp: string;
+//   avatar: string;
+// }
 
 import HeaderChat from "@/features/chat/components/HeaderChat";
 
-const EXAMPLE_MESSAGES: Message[] = [];
+// const EXAMPLE_MESSAGES: Message[] = [];
 // [
 //   {
 //     id: 1,
@@ -57,40 +45,33 @@ const EXAMPLE_MESSAGES: Message[] = [];
 // ];
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState(EXAMPLE_MESSAGES);
-  const [newMessage, setNewMessage] = useState("");
+  // const [messages, setMessages] = useState(EXAMPLE_MESSAGES);
+  // const [newMessage, setNewMessage] = useState("");
 
-  const handleSendMessage = () => {
-    if (!newMessage.trim()) return;
+  // const handleSendMessage = () => {
+  //   if (!newMessage.trim()) return;
 
-    const message = {
-      id: messages.length + 1,
-      text: newMessage,
-      sender: "user",
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      avatar:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-    };
+  //   const message = {
+  //     id: messages.length + 1,
+  //     text: newMessage,
+  //     sender: "user",
+  //     timestamp: new Date().toLocaleTimeString([], {
+  //       hour: "2-digit",
+  //       minute: "2-digit",
+  //     }),
+  //     avatar:
+  //       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+  //   };
 
-    setMessages([...messages, message]);
-    setNewMessage("");
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
+  //   setMessages([...messages, message]);
+  //   setNewMessage("");
+  // };
 
   return (
     <>
       <HeaderChat category="Gaming" participants={3} />
 
-      <VStack flex="1" overflowY="auto" p="4">
+      {/* <VStack flex="1" overflowY="auto" p="4">
         {messages.map((message) => (
           <Flex
             key={message.id}
@@ -116,9 +97,9 @@ export default function ChatPage() {
             )}
           </Flex>
         ))}
-      </VStack>
+      </VStack> */}
 
-      <HStack p="4" borderTopWidth="1px">
+      {/* <HStack p="4" borderTopWidth="1px">
         <Input
           placeholder="Escribe un mensaje..."
           value={newMessage}
@@ -127,9 +108,9 @@ export default function ChatPage() {
         />
 
         <IconButton onClick={handleSendMessage} disabled={!newMessage.trim()}>
-          <BiSend />
+          <Send />
         </IconButton>
-      </HStack>
+      </HStack> */}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Box, Button } from "@chakra-ui/react";
 import EmblaWrapper from "@/components/shared/EmblaWrapper";
-import { axiosFetcher } from "@/lib/axiosFetcher";
+import { axiosFetcher } from "../../../app/_lib/axiosFetcher";
 import { CategoryTab } from "../interfaces/CategoryTab.interface";
 import AlertCustom from "@/components/shared/AlertCustom";
 

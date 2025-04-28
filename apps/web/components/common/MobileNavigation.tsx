@@ -3,27 +3,18 @@
 import { Flex, Box, Text, Icon, BoxProps } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { BiMessageSquare, BiCompass, BiBell, BiUser } from "react-icons/bi";
+import User from "../icons/User";
+import GlobeMessage from "../icons/GlobeMessage";
 
 const NAV_ITEMS = [
   {
     name: "Chats",
-    icon: BiMessageSquare,
+    icon: GlobeMessage,
     path: "/",
   },
   {
-    name: "Explorar",
-    icon: BiCompass,
-    path: "/explore",
-  },
-  {
-    name: "Alertas",
-    icon: BiBell,
-    path: "/alerts",
-  },
-  {
     name: "Perfil",
-    icon: BiUser,
+    icon: User,
     path: "/profile",
   },
 ];

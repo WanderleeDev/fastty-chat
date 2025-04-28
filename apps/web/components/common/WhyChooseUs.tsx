@@ -1,11 +1,14 @@
 import { Box, SimpleGrid, Text, Heading, Icon } from "@chakra-ui/react";
-import { FaLock, FaBolt, FaComments, FaPalette } from "react-icons/fa";
+import Lock from "../icons/Lock";
+import PaintPalette from "../icons/PaintPalette";
+import Lightning2 from "../icons/Lightning2";
+import GlobeMessage2 from "../icons/GlobeMessage2";
 
 const features = [
   {
     title: "Privacy First",
     description: "Your conversations are encrypted for maximum security",
-    icon: FaLock,
+    icon: Lock,
     iconColor: "salmon",
     color: "cyan.400",
     gridArea: "1 / 1 / 2 / 5",
@@ -13,7 +16,7 @@ const features = [
   {
     title: "Real-time Communication",
     description: "Fluid messaging with instant updates",
-    icon: FaComments,
+    icon: GlobeMessage2,
     iconColor: "teal.400",
     color: "red.400",
     gridArea: "1 / 5 / 3 / 7",
@@ -21,7 +24,7 @@ const features = [
   {
     title: "Fast Connection",
     description: "Enter your rooms instantly with a seamless experience",
-    icon: FaBolt,
+    icon: Lightning2,
     iconColor: "yellow.300",
     color: "green.400",
     gridArea: "2 / 1 / 3 / 3",
@@ -29,7 +32,7 @@ const features = [
   {
     title: "Friendly Interface",
     description: "Minimalist design focused on the user",
-    icon: FaPalette,
+    icon: PaintPalette,
     iconColor: "cyan.500",
     color: "blue.200",
     gridArea: "2 / 3 / 3 / 5",
@@ -82,7 +85,7 @@ export default function WhyChooseUs() {
                   _groupHover={{ transform: "translateX(-2rem)" }}
                 >
                   <Icon
-                    fontSize={"2xl"}
+                    boxSize={"1.5rem"}
                     color={iconColor}
                     transition="opacity 0.2s ease-in-out"
                     _groupHover={{ opacity: 0 }}
@@ -101,7 +104,8 @@ export default function WhyChooseUs() {
                   right={2}
                   transform={"translateX(150%)"}
                   bottom={2}
-                  fontSize={"9xl"}
+                  boxSize={"7rem"}
+                  md={{ boxSize: "10rem" }}
                   color={iconColor}
                   zIndex={0}
                   transition="opacity 0.2s ease-in-out, transform 0.3s ease-in-out"

@@ -1,27 +1,27 @@
 "use client";
 
 import ChakraLink from "@/components/shared/ChakraLink";
-import { Flex, For, Text } from "@chakra-ui/react";
+import { Flex, For, Icon, Text } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { IoMdContacts } from "react-icons/io";
-import { GiCheckboxTree } from "react-icons/gi";
-import { FaExclamationCircle } from "react-icons/fa";
+import Users from "@/components/icons/Users";
+import Exclamation from "@/components/icons/Exclamation";
+import CheckBoxTree from "@/components/icons/CheckBoxTree";
 
 const sections = [
   {
     label: "Active Rooms",
-    icon: FaExclamationCircle,
+    icon: Exclamation,
     url: "/profile",
   },
   {
     label: "My Rooms",
-    icon: GiCheckboxTree,
+    icon: CheckBoxTree,
     url: "/profile/room",
   },
   {
     label: "Contacts",
-    icon: IoMdContacts,
+    icon: Users,
     url: "/profile/contact",
   },
 ] as const;
@@ -67,8 +67,12 @@ export default function NavigationProfile() {
                 color: `${pathname === url ? "#1B9A91" : "white"}`,
               }}
             >
-              <IconComponent />
-              <Text fontWeight="bold">{label}</Text>
+              <Icon boxSize={"1.5rem"}>
+                <IconComponent />
+              </Icon>
+              <Text fontWeight="bold" textWrap={"nowrap"}>
+                {label}
+              </Text>
             </ChakraLink>
           );
         }}

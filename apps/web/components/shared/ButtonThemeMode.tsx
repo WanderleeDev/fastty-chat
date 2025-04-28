@@ -2,7 +2,8 @@
 
 import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
 import { useTheme } from "next-themes";
-import { BiMoon, BiSun } from "react-icons/bi";
+import Moon from "../icons/Moon";
+import Sun from "../icons/Sun";
 
 export default function ButtonThemeMode() {
   const { theme, setTheme } = useTheme();
@@ -13,7 +14,7 @@ export default function ButtonThemeMode() {
   return (
     <ClientOnly fallback={<Skeleton boxSize="8" />}>
       <IconButton onClick={toggleColorMode} variant="ghost" size="md">
-        {theme === "light" ? <BiSun size={20} /> : <BiMoon size={20} />}
+        {theme === "light" ? <Sun /> : <Moon />}
       </IconButton>
     </ClientOnly>
   );

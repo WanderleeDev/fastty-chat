@@ -5,32 +5,32 @@ import {
   IconButton,
   Flex,
   Text,
+  Icon,
 } from "@chakra-ui/react";
-import { RiMenuUnfold2Line } from "react-icons/ri";
 import MainLogo from "../shared/MainLogo";
-import { BiBell, BiMessageSquare, BiUser, BiHome } from "react-icons/bi";
 import ButtonThemeMode from "../shared/ButtonThemeMode";
 import Link from "next/link";
+import ChakraLink from "../shared/ChakraLink";
+import HamburgerMenu from "../icons/HamburgerMenu";
+import Arrow from "../icons/Arrow";
+import Home from "../icons/Home";
+import GlobeMessage from "../icons/GlobeMessage";
+import User from "../icons/User";
 
 const NAV_ITEMS = [
   {
     name: "Home",
-    icon: BiHome,
+    icon: Home,
     path: "/",
   },
   {
     name: "Chats",
-    icon: BiMessageSquare,
-    path: "/",
-  },
-  {
-    name: "Alertas",
-    icon: BiBell,
-    path: "/alerts",
+    icon: GlobeMessage,
+    path: "/chat",
   },
   {
     name: "Perfil",
-    icon: BiUser,
+    icon: User,
     path: "/profile",
   },
 ];
@@ -40,7 +40,7 @@ export default function DrawerMenu() {
     <Drawer.Root>
       <Drawer.Trigger asChild>
         <IconButton aria-label="Open menu" variant="ghost">
-          <RiMenuUnfold2Line size={20} />
+          <HamburgerMenu />
         </IconButton>
       </Drawer.Trigger>
       <Portal>
@@ -62,21 +62,44 @@ export default function DrawerMenu() {
                       gap={2}
                       alignItems="center"
                       fontSize={"xl"}
-                      // color={item.path === pathname ? "brand.500" : "gray.500"}
                       transition="all 0.2s"
                     >
-                      <IconComponent />
-                      <Text
-                        fontSize="xs"
-                        // fontWeight={item.path === pathname ? "medium" : "normal"}
-                        mt="1"
-                      >
+                      <Icon boxSize={"1.2rem"}>
+                        <IconComponent />
+                      </Icon>
+                      <Text fontSize="xs" mt="1">
                         {item.name}
                       </Text>
                     </Flex>
                   </Link>
                 );
               })}
+              <Flex gap={2} direction={"column"}>
+                <ChakraLink
+                  p={4}
+                  rounded={"md"}
+                  color="gray.800"
+                  bg="teal.400"
+                  href="/auth/login"
+                >
+                  <Icon boxSize={"1.2rem"}>
+                    <Arrow />
+                  </Icon>
+                  Login
+                </ChakraLink>
+                <ChakraLink
+                  p={4}
+                  rounded={"md"}
+                  color="gray.800"
+                  bg="red.400"
+                  href="/auth/register"
+                >
+                  <Icon boxSize={"1.2rem"} transform={"rotate(180deg)"}>
+                    <Arrow />
+                  </Icon>
+                  Sign Up
+                </ChakraLink>
+              </Flex>
             </Drawer.Body>
             <Drawer.Footer display={"flex"} justifyContent={"flex-start"}>
               <ButtonThemeMode />

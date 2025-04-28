@@ -1,13 +1,13 @@
 "use client";
 
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
-import { BiUser } from "react-icons/bi";
 import EmblaWrapper from "../../../components/shared/EmblaWrapper";
 import Link from "next/link";
 import Picture from "@/components/shared/Picture";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { roomsOptions } from "../services";
 import AlertCustom from "@/components/shared/AlertCustom";
+import User from "@/components/icons/User";
 
 export default function FeaturedRooms() {
   const {
@@ -101,7 +101,7 @@ export default function FeaturedRooms() {
                 borderRadius="full"
                 px="2"
               >
-                <BiUser size={12} color="white" />
+                <User />
                 <Text color="white" fontSize="xs" fontWeight="medium" ml="1">
                   {participants}
                 </Text>

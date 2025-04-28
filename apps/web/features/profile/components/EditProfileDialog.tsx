@@ -6,12 +6,12 @@ import { Field, Input, Button } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { FaRegEdit } from "react-icons/fa";
 import {
   ProfileFormValues,
   profileFormSchema,
   profileFormDefaultValues,
 } from "../schemas";
+import Edit from "@/components/icons/Edit";
 
 interface Props {
   profile: ProfileFormValues;
@@ -91,7 +91,7 @@ export default function EditProfileDialog({ profile }: Props) {
           size={"xl"}
         >
           Edit Profile
-          <FaRegEdit />
+          <Edit />
         </Button>
       }
       submitButton={
@@ -105,7 +105,7 @@ export default function EditProfileDialog({ profile }: Props) {
           size={"lg"}
         >
           Edit
-          <FaRegEdit />
+          <Edit />
         </Button>
       }
     />

@@ -1,6 +1,6 @@
+import Arrow from "@/components/icons/Arrow";
 import { HStack, IconButton, Avatar, Box, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { BiLeftArrow } from "react-icons/bi";
 
 interface Props {
   category: string;
@@ -11,8 +11,8 @@ export default function HeaderChat({ category, participants }: Props) {
   return (
     <HStack p="4" borderBottomWidth="1px">
       <Link href="/">
-        <IconButton>
-          <BiLeftArrow />
+        <IconButton transform={"rotate(180deg)"}>
+          <Arrow transform={"rotate(180deg)"} />
         </IconButton>
       </Link>
       <Avatar.Root size={"sm"} variant="outline">

@@ -1,9 +1,7 @@
 "use client";
 
-import { Button, Field, PinInput, Text } from "@chakra-ui/react";
-import { BiSend } from "react-icons/bi";
+import { Button, Field, Icon, PinInput, Text } from "@chakra-ui/react";
 import MainLogo from "../../../components/shared/MainLogo";
-import { VscDebugDisconnect } from "react-icons/vsc";
 import BaseDialog from "../../../components/shared/BaseDialog";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,6 +10,8 @@ import {
   joinChatFormSchema,
   joinChatDefaultValues,
 } from "../schemas";
+import Send from "@/components/icons/Send";
+import Connect from "@/components/icons/Connect";
 
 export default function JoinChatDialog() {
   const {
@@ -75,7 +75,9 @@ export default function JoinChatDialog() {
       triggerButton={
         <Button colorPalette={"teal"} variant={"solid"} size={"xl"}>
           Join Chat Room
-          <BiSend />
+          <Icon>
+            <Send />
+          </Icon>
         </Button>
       }
       submitButton={
@@ -89,7 +91,9 @@ export default function JoinChatDialog() {
           size={"xl"}
         >
           Connect
-          <VscDebugDisconnect />
+          <Icon>
+            <Connect />
+          </Icon>
         </Button>
       }
     />

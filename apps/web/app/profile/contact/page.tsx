@@ -5,7 +5,7 @@ export default function ProfileContactPage() {
   return (
     <Flex direction={"column"} gap={4} as="section">
       <Heading as="h3" fontSize="xl" fontWeight="bold">
-        Active Rooms
+        Contacts
       </Heading>
       <ListContact />
     </Flex>

@@ -1,5 +1,5 @@
 import { Icon, Text, TextProps } from "@chakra-ui/react";
-import { PiLightningFill } from "react-icons/pi";
+import Lightning from "@/components/icons/Lightning";
 
 interface Props extends TextProps {
   textExtension?: string;
@@ -17,8 +17,8 @@ export default function MainLogo({ textExtension, ...props }: Props) {
       {...props}
     >
       fastty
-      <Icon colorPalette={"yellow"} color={"yellow.400"}>
-        <PiLightningFill transform="scale(1.2)" />
+      <Icon size="2xl">
+        <Lightning />
       </Icon>
       chat {textExtension}
     </Text>
