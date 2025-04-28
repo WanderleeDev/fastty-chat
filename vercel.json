@@ -1,6 +1,0 @@
-{
-  "version": 2,
-  "buildCommand": "npx turbo run build",
-  "outputDirectory": "apps/web/.next",
-  "installCommand": "npm install"
-}
