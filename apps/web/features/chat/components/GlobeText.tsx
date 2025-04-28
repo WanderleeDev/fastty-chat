@@ -1,6 +1,5 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import React, { PropsWithChildren, useState } from "react";
-// import { BiChevronsUp, BiDotsHorizontalRounded } from "react-icons/bi";
 
 interface Props {
   message: string;

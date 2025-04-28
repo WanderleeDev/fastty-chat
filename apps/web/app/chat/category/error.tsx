@@ -2,7 +2,7 @@
 
 import { Heading, Button, Flex, Text, Icon } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import { PiLightningSlashFill } from "react-icons/pi";
+import LightningSlash from "@/components/icons/LightningSlash";
 
 export default function Error({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,8 +22,8 @@ export default function Error({
       justifyContent="center"
       gap={4}
     >
-      <Icon color={"yellow.400"}>
-        <PiLightningSlashFill size={"150"} />
+      <Icon boxSize={"10rem"}>
+        <LightningSlash />
       </Icon>
       <Heading
         textAlign={"center"}

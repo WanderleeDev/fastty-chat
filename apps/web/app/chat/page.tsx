@@ -9,7 +9,6 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { BiSend } from "react-icons/bi";
 import { GlobeTextWithState } from "@/features/chat/components/GlobeText";
 
 interface Message {
@@ -119,7 +118,7 @@ export default function ChatPage() {
         ))}
       </VStack>
 
-      <HStack p="4" borderTopWidth="1px">
+      {/* <HStack p="4" borderTopWidth="1px">
         <Input
           placeholder="Escribe un mensaje..."
           value={newMessage}
@@ -130,7 +129,7 @@ export default function ChatPage() {
         <IconButton onClick={handleSendMessage} disabled={!newMessage.trim()}>
           <Send />
         </IconButton>
-      </HStack>
+      </HStack> */}
     </>
   );
 }

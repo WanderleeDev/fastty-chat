@@ -22,6 +22,7 @@ export default function CreateChatDialog() {
   } = useForm<CreateChatFormValues>({
     resolver: zodResolver(createChatFormSchema),
     defaultValues: createChatDefaultValues,
+    mode: "all",
   });
 
   const onSubmit = handleSubmit(async (data) => {
