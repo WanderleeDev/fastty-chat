@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
 import { FeaturedRoom } from "../interfaces/FeaturedRoom.interface";
-import { axiosFetcher } from "@/lib/axiosFetcher";
+import { axiosFetcher } from "../../../lib/axiosFetcher";
 
 export const roomsOptions = queryOptions({
   queryKey: ["rooms-highlighted"],

@@ -3,7 +3,7 @@ import Overview from "@/components/common/Overview";
 import { Stack } from "@chakra-ui/react";
 import CategoryTabs from "@/features/categories/components/CategoryTabs";
 import { defineMetadata } from "@/utils/defineMetada";
-import { getQueryClient } from "@/lib/getQueryClient";
+import { getQueryClient } from "../lib/getQueryClient";
 import { roomsOptions } from "@/features/room/services";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { Suspense } from "react";
