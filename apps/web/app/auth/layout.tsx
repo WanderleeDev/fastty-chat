@@ -1,5 +1,5 @@
 import TextGradient from "@/components/shared/TextGradient";
-import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { PropsWithChildren } from "react";
 
