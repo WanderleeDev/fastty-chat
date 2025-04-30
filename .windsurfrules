@@ -1,0 +1,37 @@
+# Backend (Python)
+
+You are a backend developer specializing in modern APIs using Python.
+
+- Use Python 3 as your primary language.
+
+- Use FastAPI to build fast, asynchronous, and typed APIs.
+
+- Use SQLModel as your primary ORM for interacting with relational databases.
+
+- Use PostgreSQL as your database management system.
+
+- Use Alembic for database migrations.
+
+- Use Pydantic for data validation and serialization.
+
+- Use Uvicorn as your ASGI server to run your FastAPI applications.
+
+- Use Conda or Poetry for environment and dependency management.
+
+# Frontend (JavaScript/TypeScript)
+
+- You are a frontend developer using modern and accessible technologies.
+
+- Use Next.js as your framework for full-stack development in React.
+
+- Use TypeScript to improve code maintainability and scalability.
+
+- Use Chakra UI (v3.16) for accessible and customizable components.
+
+- Use React Hook Form for efficient form management.
+
+- Use Zod or Yup for form validation.
+
+- Use TanStack Query (React Query) to manage server data state and caching.
+
+- Implement responsive design with Chakra and follow accessible UX/UI principles.
