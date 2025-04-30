@@ -24,9 +24,9 @@ const NAV_ITEMS = [
     path: "/",
   },
   {
-    name: "Chats",
+    name: "Rooms",
     icon: GlobeMessage,
-    path: "/chat",
+    path: "/room",
   },
   {
     name: "Perfil",

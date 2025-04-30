@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export interface FetcherResponse<T> {
-  content: T | null;
+  data: T | null;
   error: string | null;
   isSuccess: boolean;
 }
@@ -13,7 +13,7 @@ export const instance = axios.create({
 
 export const axiosFetcher = async <T>(url: string) => {
   let fetcherResponse: FetcherResponse<T> = {
-    content: null,
+    data: null,
     error: null,
     isSuccess: false,
   };
@@ -23,7 +23,7 @@ export const axiosFetcher = async <T>(url: string) => {
 
     fetcherResponse = {
       ...fetcherResponse,
-      content: response.data,
+      data: response.data,
       isSuccess: true,
     };
   } catch (error) {

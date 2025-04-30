@@ -5,11 +5,11 @@ import { CategoryTab } from "../interfaces/CategoryTab.interface";
 import AlertCustom from "@/components/shared/AlertCustom";
 
 export default async function CategoryTabs() {
-  const { content, error, isSuccess } = await axiosFetcher<CategoryTab[]>(
+  const { data, error, isSuccess } = await axiosFetcher<CategoryTab[]>(
     "/categories"
   );
 
-  if (!isSuccess || error || !content) {
+  if (!isSuccess || error || !data) {
     return (
       <AlertCustom
         alertTitle={error || "Something went wrong"}
@@ -22,7 +22,7 @@ export default async function CategoryTabs() {
   return (
     <Box md={{ display: "none" }}>
       <EmblaWrapper gap={2}>
-        {content.map((category) => (
+        {data.map((category) => (
           <Button
             className="embla__slide"
             key={category.id}

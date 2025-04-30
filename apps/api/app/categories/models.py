@@ -50,6 +50,7 @@ class CategoryPaginated(SQLModel):
                 "pages": 2,
                 "current_page": 1,
                 "total_items": 8,
+                "total_pages": 2,
                 "offset": 0,
                 "limit": 4,
                 "prev_page": 0,

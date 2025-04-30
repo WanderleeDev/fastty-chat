@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import EmblaWrapper from "../../../components/shared/EmblaWrapper";
 import Link from "next/link";
 import Picture from "@/components/shared/Picture";
@@ -11,14 +11,13 @@ import User from "@/components/icons/User";
 
 export default function FeaturedRooms() {
   const {
-    data: { content, error, isSuccess },
+    data: { data, error, isSuccess },
     refetch,
-    isError,
-  } = useSuspenseQuery(roomsOptions);
+  } = useSuspenseQuery(
+    roomsOptions(["rooms-highlighted"], "/rooms/highlights")
+  );
 
-  const hasError = !isSuccess || error || !content || isError;
-
-  if (hasError) {
+  if (!isSuccess || error) {
     return (
       <AlertCustom
         alertTitle="Failed to obtain the top rooms"
@@ -30,6 +29,8 @@ export default function FeaturedRooms() {
     );
   }
 
+  if (!data || data.length === 0) return null;
+
   return (
     <Box>
       <Heading as="h2" fontSize="xl" fontWeight="bold" mb="4">
@@ -37,7 +38,7 @@ export default function FeaturedRooms() {
       </Heading>
 
       <EmblaWrapper gap={4} md={{ gap: 8 }} lg={{ gap: 10 }}>
-        {content.map(({ id, image, participants, title, category }) => (
+        {data.map(({ id, image, participants, title, category }) => (
           <Link
             key={id}
             aria-label={`go to room ${title}`}
@@ -99,10 +100,11 @@ export default function FeaturedRooms() {
                 right="2"
                 bg="rgba(0,0,0,0.6)"
                 borderRadius="full"
-                px="2"
               >
-                <User />
-                <Text color="white" fontSize="xs" fontWeight="medium" ml="1">
+                <Icon size={"sm"} color="white" display="block">
+                  <User />
+                </Icon>
+                <Text color="white" fontSize="xs" fontWeight="medium">
                   {participants}
                 </Text>
               </Flex>

@@ -18,7 +18,9 @@ export const metadata = defineMetadata({
 export default async function Home() {
   const queryClient = getQueryClient();
 
-  void queryClient.prefetchQuery(roomsOptions);
+  void queryClient.prefetchQuery(
+    roomsOptions(["rooms-highlighted"], "/rooms/highlights")
+  );
 
   return (
     <Stack
