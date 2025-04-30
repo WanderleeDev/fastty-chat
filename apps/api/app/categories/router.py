@@ -1,8 +1,8 @@
 from typing import List
 from fastapi import APIRouter
-from app.categories.models import Category, CategoryCreate
+from app.categories.models import Category, CategoryCreate, CategoryPaginated
 from app.dependencies import SessionDep
-from app.categories.services import get_categories_service, create_category_service
+from app.categories.services import get_categories_service, create_category_service, get_categories_paginated_service
 from app.core import ResponseMessage
 
 category_router = APIRouter()
@@ -13,6 +13,14 @@ async def read_all_categories(db: SessionDep):
         Return a  list of categories
     """
     return await get_categories_service(db)
+
+
+@category_router.get("/paginated", response_model=CategoryPaginated, status_code=200)
+async def read_paginated_categories(db: SessionDep, offset: int = 0, limit: int = 4):
+    """
+        Return a paginated list of categories
+    """
+    return await get_categories_paginated_service(db, offset, limit)
 
 
 @category_router.post("", response_model=ResponseMessage, status_code=201)
