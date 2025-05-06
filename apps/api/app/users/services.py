@@ -2,7 +2,7 @@ from sqlalchemy import select, insert, update
 from fastapi import HTTPException, status
 from app.core import ResponseMessage
 from app.dependencies import SessionDep
-from app.utils import find_resource
+from app.utils import find_resource, is_equals
 from app.users.models import User
 from app.users.schemas import UserResponse, UserCreate, UserUpdate
 from typing import List
@@ -99,6 +99,7 @@ async def update_user_service(
     Raises:
         HTTPException: If the user does not exist (404) or no fields to update (400).
     """
+    has_changes = False
     user = await db.get(User, user_id)
 
     if user is None:
@@ -114,7 +115,15 @@ async def update_user_service(
         )
 
     for key, value in user_data_formatter.items():
-        setattr(user, key, value)
+        current_value = getattr(user, key)
+
+        if not is_equals(current_value, value, case_sensitive=True):
+            has_changes = True
+            setattr(user, key, value)
+    
+
+    if not has_changes:
+        return {"message": "Values are the same. No changes to update"}
 
     await db.commit()
     await db.refresh(user)
