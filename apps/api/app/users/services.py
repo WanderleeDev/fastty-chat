@@ -42,7 +42,7 @@ async def get_user_service(db: SessionDep, user_id: UUID) -> UserResponse:
     Raises:
         HTTPException: If the user does not exist (404).
     """
-    user = await find_resource(User, db, [User.id == user_id])
+    user = await db.get(User, user_id)
 
     if user is None:
         raise HTTPException(
@@ -99,7 +99,7 @@ async def update_user_service(
     Raises:
         HTTPException: If the user does not exist (404) or no fields to update (400).
     """
-    user = await find_resource(User, db, [User.id == user_id])
+    user = await db.get(User, user_id)
 
     if user is None:
         raise HTTPException(
@@ -115,7 +115,7 @@ async def update_user_service(
 
     for key, value in user_data_formatter.items():
         setattr(user, key, value)
-    
+
     await db.commit()
     await db.refresh(user)
 
