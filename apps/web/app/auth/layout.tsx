@@ -5,7 +5,13 @@ import React, { PropsWithChildren } from "react";
 
 export default function AuthLayout({ children }: PropsWithChildren) {
   return (
-    <Grid h="100%" gap={8} pt={12} lg={{ gridTemplateColumns: "1fr 1fr" }}>
+    <Grid
+      h="100%"
+      gap={8}
+      py={4}
+      md={{ py: 12 }}
+      lg={{ gridTemplateColumns: "1fr 1fr" }}
+    >
       <Flex
         direction={"column"}
         alignItems={"center"}

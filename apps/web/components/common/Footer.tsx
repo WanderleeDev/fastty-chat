@@ -45,9 +45,10 @@ export default function Footer() {
         direction={{ base: "column", md: "row" }}
         align="center"
         justify="space-between"
-        backgroundColor={"gray.solid"}
+        backgroundColor="rgba(0,0,0,0.8)"
         color="white"
         display={{ base: "none", md: "flex" }}
+        backdropFilter="blur(10px)"
       >
         <Flex direction="row" align="center" spaceX="2">
           <MainLogo />

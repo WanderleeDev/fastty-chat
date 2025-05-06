@@ -9,9 +9,17 @@ interface Props {
 
 export default function HeaderChat({ category, participants }: Props) {
   return (
-    <HStack p="4" borderBottomWidth="1px">
+    <HStack
+      p="4"
+      borderBottomWidth="1px"
+      backgroundImage="url('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg')"
+      backgroundSize="cover"
+      backgroundPosition="center"
+      color="white"
+      textShadow="0 0 5px rgba(0,0,0,0.5)"
+    >
       <Link href="/">
-        <IconButton transform={"rotate(180deg)"}>
+        <IconButton transform={"rotate(180deg)"} colorPalette={"teal"}>
           <Arrow transform={"rotate(180deg)"} />
         </IconButton>
       </Link>
@@ -20,9 +28,17 @@ export default function HeaderChat({ category, participants }: Props) {
         <Avatar.Image src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" />
       </Avatar.Root>
 
-      <Box flex="1">
-        <Text fontWeight="bold">{category} Zone</Text>
-        <Text fontSize="xs" color="gray.500">
+      <Box
+        flex="1"
+        p="2"
+        borderRadius="md"
+        color="white"
+        textShadow="0 0 5px rgba(0,0,0,0.5)"
+      >
+        <Text fontWeight="bold" color="white">
+          {category} Zone
+        </Text>
+        <Text fontSize="xs" color="white" opacity={0.8}>
           {`${participants} ${
             participants === 1 ? "participant" : "participants"
           }`}

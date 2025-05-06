@@ -27,9 +27,9 @@ export default function RootLayout({
             <Box
               flex="1"
               px="4"
-              py="2"
+              py="4"
               pb="20"
-              md={{ px: "8" }}
+              md={{ px: "8", py: "4" }}
               xl={{ px: "10" }}
               as={"main"}
             >

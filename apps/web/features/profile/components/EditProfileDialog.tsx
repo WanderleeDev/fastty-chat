@@ -45,6 +45,7 @@ export default function EditProfileDialog({ profile }: Props) {
       closable={true}
       hasCancel={true}
       as={"form"}
+      color={"gray.700"}
       titleDialog={<MainLogo textExtension="room creation" />}
       bodyDialog={
         <Field.Root>

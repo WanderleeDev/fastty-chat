@@ -41,6 +41,7 @@ export default function CreateChatDialog() {
       hasCancel={true}
       as={"form"}
       onSubmit={onSubmit}
+      color={"gray.700"}
       titleDialog={<MainLogo textExtension="room creation" />}
       bodyDialog={
         <Field.Root>

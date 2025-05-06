@@ -39,6 +39,7 @@ export default function JoinChatDialog() {
       closable={true}
       hasCancel={true}
       as={"form"}
+      color={"gray.700"}
       onSubmit={onSubmit}
       titleDialog={<MainLogo textExtension="connection" />}
       bodyDialog={

@@ -49,7 +49,13 @@ export function GlobeTextWithState({ message, timestamp }: Props) {
 export function GlobeText({ message, timestamp, children }: GlobeProps) {
   return (
     <Box position={"relative"} w={"100%"}>
-      <Box p="3" borderRadius="lg" shadow="sm">
+      <Box
+        p="3"
+        borderRadius="lg"
+        shadow="sm"
+        bgColor={"teal.100"}
+        _dark={{ bgColor: "bg.emphasized" }}
+      >
         {message}
       </Box>
       <Flex gap={2} justifyContent={"space-between"}>

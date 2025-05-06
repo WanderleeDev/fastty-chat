@@ -1,77 +1,58 @@
 "use client";
 
-// interface Message {
-//   id: number;
-//   text: string;
-//   sender: string;
-//   timestamp: string;
-//   avatar: string;
-// }
-
+import { GlobeTextWithState } from "@/features/chat/components/GlobeText";
 import HeaderChat from "@/features/chat/components/HeaderChat";
+import MessageComposer from "@/features/chat/components/MessageComposer";
+import { Message } from "@/features/chat/interfaces/Message.interface";
+import { VStack, Flex, Avatar, Grid } from "@chakra-ui/react";
+import { useState } from "react";
 
-// const EXAMPLE_MESSAGES: Message[] = [];
-// [
-//   {
-//     id: 1,
-//     text: "¡Hola! ¿Alguien para jugar Fortnite?",
-//     sender: "user",
-//     timestamp: "10:30",
-//     avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-//   },
-//   {
-//     id: 2,
-//     text: "¡Yo me apunto! ¿Qué nivel tienes?",
-//     sender: "other",
-//     timestamp: "10:31",
-//     avatar:
-//       "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
-//   },
-//   {
-//     id: 3,
-//     text: "Nivel 75, llevo jugando toda la temporada",
-//     sender: "user",
-//     timestamp: "10:32",
-//     avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-//   },
-//   {
-//     id: 4,
-//     text: "¡Genial! Yo estoy en el 80. ¿Jugamos una partida ahora?",
-//     sender: "other",
-//     timestamp: "10:33",
-//     avatar:
-//       "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
-//   },
-// ];
+const EXAMPLE_MESSAGES: Message[] = [
+  {
+    id: 1,
+    text: "¡Hola! ¿Alguien para jugar Fortnite?",
+    sender: "user",
+    timestamp: "10:30",
+    avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+  },
+  {
+    id: 2,
+    text: "¡Yo me apunto! ¿Qué nivel tienes?",
+    sender: "other",
+    timestamp: "10:31",
+    avatar:
+      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+  },
+  {
+    id: 3,
+    text: "Nivel 75, llevo jugando toda la temporada",
+    sender: "user",
+    timestamp: "10:32",
+    avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+  },
+  {
+    id: 4,
+    text: "¡Genial! Yo estoy en el 80. ¿Jugamos una partida ahora?",
+    sender: "other",
+    timestamp: "10:33",
+    avatar:
+      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+  },
+];
 
 export default function ChatPage() {
-  // const [messages, setMessages] = useState(EXAMPLE_MESSAGES);
-  // const [newMessage, setNewMessage] = useState("");
-
-  // const handleSendMessage = () => {
-  //   if (!newMessage.trim()) return;
-
-  //   const message = {
-  //     id: messages.length + 1,
-  //     text: newMessage,
-  //     sender: "user",
-  //     timestamp: new Date().toLocaleTimeString([], {
-  //       hour: "2-digit",
-  //       minute: "2-digit",
-  //     }),
-  //     avatar:
-  //       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-  //   };
-
-  //   setMessages([...messages, message]);
-  //   setNewMessage("");
-  // };
+  const [messages, setMessages] = useState(EXAMPLE_MESSAGES);
 
   return (
-    <>
+    <Grid
+      templateRows="auto 1fr auto"
+      h="100%"
+      bgColor={"teal.50"}
+      _dark={{ bgColor: "teal.900" }}
+    >
       <HeaderChat category="Gaming" participants={3} />
 
-      {/* <VStack flex="1" overflowY="auto" p="4">
+      <VStack flex="1" overflowY="auto" p="4">
         {messages.map((message) => (
           <Flex
             key={message.id}
@@ -97,20 +78,9 @@ export default function ChatPage() {
             )}
           </Flex>
         ))}
-      </VStack> */}
+      </VStack>
 
-      {/* <HStack p="4" borderTopWidth="1px">
-        <Input
-          placeholder="Escribe un mensaje..."
-          value={newMessage}
-          onKeyPress={handleKeyPress}
-          border="none"
-        />
-
-        <IconButton onClick={handleSendMessage} disabled={!newMessage.trim()}>
-          <Send />
-        </IconButton>
-      </HStack> */}
-    </>
+      <MessageComposer />
+    </Grid>
   );
 }
