@@ -7,9 +7,6 @@ class HealthCheckResponse(SQLModel):
 
     model_config = {
         "json_schema_extra": {
-            "example": {
-                "status": "ok",
-                "message": "Application is fully functional"
-            }
+            "example": {"status": "ok", "message": "Application is fully functional"}
         }
     }

@@ -1,5 +1,6 @@
 from fastapi import HTTPException, status
 
+
 class DuplicateCategoryError(HTTPException):
     message: str = "The caegoria in question already exists"
 

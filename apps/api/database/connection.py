@@ -1,20 +1,15 @@
-from sqlmodel import SQLModel, create_engine
 from app.core import Config
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
 
 is_development = Config.ENVIRONMENT == "development"
 uri_db = Config.DATABASE_URI
 
 if not uri_db:
-        raise ValueError("DATABASE_URL not defined")
+    raise ValueError("DATABASE_URL not defined")
 
-# Synchronous connection
-engine = create_engine(
-    uri_db.replace("postgresql", "postgresql+psycopg2"), 
-    echo=True
+engine = create_async_engine(
+    uri_db.replace("postgresql", "postgresql+asyncpg"), echo=True
 )
 
-def init_db():
-    if is_development:
-        print("Creating database and tables")
-        SQLModel.metadata.create_all(engine)
-
+async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)

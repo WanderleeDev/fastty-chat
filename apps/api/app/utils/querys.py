@@ -1,16 +1,17 @@
-from sqlmodel import SQLModel, Session, select
-from typing import Type, Optional
+from typing import Optional
+from sqlalchemy import select
+from app.dependencies.session import SessionDep
+from sqlalchemy.orm import DeclarativeMeta
 
-def find_resource(model: Type[SQLModel], session: Session, filters: list) -> Optional[SQLModel]:
+
+async def find_resource(
+    model: DeclarativeMeta, db: SessionDep, filters: list
+) -> Optional[DeclarativeMeta]:
     query = select(model)
 
     for q in filters:
         query = query.where(q)
 
-    result = session.exec(query).one_or_none()
+    result = await db.execute(query)
 
-    return result
-
-def equals_ignore_case(model: Type[SQLModel], session: Session, field: str, value: str) -> Optional[SQLModel]:
-    query = select(model).where(func.lower(getattr(model, field)) == func.lower(value))
-    return session.exec(query).one_or_none()
+    return result.scalars().first()

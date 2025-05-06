@@ -1,6 +1,3 @@
-from .connection import init_db, engine
+from .connection import async_session
 
-__all__ = [
-    "init_db",
-    "engine"
-]
+__all__ = ["async_session"]

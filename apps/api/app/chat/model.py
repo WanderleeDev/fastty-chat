@@ -1,6 +1,8 @@
 from sqlmodel import Field
 from app.core import BaseModel
 from uuid import UUID, uuid4
+from enum import Enum
+
 
 class ChatBase(BaseModel):
     content: str = Field(max_length=255)
@@ -18,3 +20,8 @@ class ChatCreate(ChatBase):
 
 class ChatUpdate(ChatBase):
     pass
+
+
+class PingPong(str, Enum):
+    PING = "ping"
+    PONG = "pong"

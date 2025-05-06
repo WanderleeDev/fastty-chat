@@ -1,11 +1,18 @@
 from typing import Annotated
 from fastapi import Depends
-from database import engine
-from sqlmodel import Session
+from sqlalchemy.ext.asyncio import AsyncSession
+from database import async_session
 
 
-def get_session() -> Session:
-    with Session(engine) as session:
-        yield session
+async def get_session():
+    async with async_session() as session:
+        try:
+            yield session
+        except Exception:
+            await session.rollback()
+            raise
+        finally:
+            await session.close()
 
-SessionDep = Annotated[Session, Depends(get_session)]
+
+SessionDep = Annotated[AsyncSession, Depends(get_session)]

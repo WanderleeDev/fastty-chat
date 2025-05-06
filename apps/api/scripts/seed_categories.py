@@ -2,7 +2,18 @@ from app.dependencies import SessionDep, get_session
 from app.categories import Category
 
 
-categories = ['all', 'gaming', 'music', 'sports', 'tech', 'art', 'languages', 'movies', 'books']
+categories = [
+    "all",
+    "gaming",
+    "music",
+    "sports",
+    "tech",
+    "art",
+    "languages",
+    "movies",
+    "books",
+]
+
 
 def create_categories(db: SessionDep):
     try:
@@ -15,7 +26,6 @@ def create_categories(db: SessionDep):
     except Exception as e:
         print(f"Error creating category: {str(e)}")
         db.rollback()
-
 
     with get_session as db:
         create_categories(db)
