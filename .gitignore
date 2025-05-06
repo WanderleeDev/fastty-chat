@@ -268,3 +268,4 @@ tmp/
 temp/
 .cache/
 .vercel
+alembic.ini
