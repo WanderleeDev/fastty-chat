@@ -3,7 +3,8 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from app.core import Base
-from app.room import Room
+
+# from app.room import Room
 from app.users import User
 
 from alembic import context

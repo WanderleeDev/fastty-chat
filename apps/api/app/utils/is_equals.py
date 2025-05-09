@@ -1,6 +1,9 @@
 from typing import Any
 
-def is_equals(value1: Any, value2: Any, case_sensitive: bool = False, throw_error: bool = False) -> bool:
+
+def is_equals(
+    value1: Any, value2: Any, case_sensitive: bool = False, throw_error: bool = False
+) -> bool:
     """
     Check if two values are equal, with an option to ignore case.
 
@@ -16,14 +19,20 @@ def is_equals(value1: Any, value2: Any, case_sensitive: bool = False, throw_erro
 
     primitive_types = (int, float, str, bool)
 
-    if not isinstance(value1, primitive_types) or not  isinstance(value2, primitive_types):
+    if not isinstance(value1, primitive_types) or not isinstance(
+        value2, primitive_types
+    ):
         if throw_error:
-            raise TypeError(f"Both values must be of primitive types: {primitive_types}")
+            raise TypeError(
+                f"Both values must be of primitive types: {primitive_types}"
+            )
         return False
 
-
     if isinstance(value1, str) and isinstance(value2, str) and case_sensitive:
-        return value1.casefold() == value2.casefold() if case_sensitive else value1 == value2
+        return (
+            value1.casefold() == value2.casefold()
+            if case_sensitive
+            else value1 == value2
+        )
 
     return value1 == value2
-

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, UUID4
 from typing import Optional
 from datetime import datetime
 
@@ -16,7 +16,8 @@ class ResponseMessage(BaseModel):
     )
 
 
-class Timestamp(BaseModel):
+class PydanticBaseModel(BaseModel):
+    id: UUID4 = Field(description="Unique identifier")
     created_at: datetime = Field(description="Creation date")
     updated_at: Optional[datetime] = Field(default=None, description="Update date")
 

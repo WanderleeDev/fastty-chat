@@ -1,6 +1,6 @@
-from pydantic import UUID4, BaseModel, EmailStr, Field, field_validator, ConfigDict
+from pydantic import BaseModel, EmailStr, Field, field_validator, ConfigDict
 from typing import Optional
-from app.core import Timestamp
+from app.core import PydanticBaseModel
 from app.utils import validate_password
 
 
@@ -21,6 +21,8 @@ class UserCreate(UserBase):
 
     model_config = ConfigDict(
         str_strip_whitespace=True,
+        extra="ignore",
+        from_attributes=True,
         json_schema_extra={
             "example": {
                 "name": "Wanderlee Max",
@@ -33,7 +35,6 @@ class UserCreate(UserBase):
 
 class UserUpdate(BaseModel):
     name: Optional[str] = Field(default=None, min_length=3, max_length=30)
-    email: Optional[EmailStr] = Field(default=None)
     password: Optional[str] = Field(default=None, min_length=8)
 
     @field_validator("password")
@@ -47,15 +48,13 @@ class UserUpdate(BaseModel):
         json_schema_extra={
             "example": {
                 "name": "Wanderlee Max",
-                "email": "wanderlee.max@example.com",
                 "password": "MyP@ssw0rd",
             }
         },
     )
 
 
-class UserResponse(Timestamp):
-    id: UUID4 = Field(description="Unique identifier for the user")
+class UserResponse(PydanticBaseModel):
     name: str = Field(
         min_length=3, max_length=30, description="Full name of the registered user"
     )

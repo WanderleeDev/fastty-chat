@@ -8,7 +8,7 @@ from app.users import user_router
 # from app.ai import ai_router
 # from app.auth import auth_router
 # from app.categories import category_router
-from app.room import room_router
+# from app.room import room_router
 
 
 app = FastAPI(
@@ -37,5 +37,5 @@ app.include_router(user_router, prefix="/users", tags=["users"])
 # app.include_router(chat_router, prefix="/chats", tags=["chats"])
 # app.include_router(auth_router, prefix="/auth", tags=["auth"])
 # app.include_router(category_router, prefix="/categories", tags=["categories"])
-app.include_router(room_router, prefix="/rooms", tags=["rooms"])
+# app.include_router(room_router, prefix="/rooms", tags=["rooms"])
 # app.include_router(ai_router, prefix="/ai", tags=["ai"])

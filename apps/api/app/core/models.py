@@ -1,14 +1,30 @@
-from sqlalchemy import Column, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+from typing import Optional
+from sqlalchemy import DateTime, func
+from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
 from sqlalchemy.sql import func
+from sqlalchemy import String
+from uuid import uuid4
 
-Base = declarative_base()
+
+class Base(DeclarativeBase):
+    pass
 
 
-class TimestampMixin:
+class BaseModel(Base):
     """
-    Mixin to add timestamps to models.
+    Base class for all models in the application.
+
+    Includes common columns that are shared across all models, such as the `id`, `created_at` and `updated_at` columns.
     """
 
-    created_at = Column(DateTime, default=func.now(), nullable=False)
-    updated_at = Column(DateTime, default=None, nullable=True, onupdate=func.now())
+    __abstract__ = True
+
+    id: Mapped[str] = mapped_column(
+        String(36), primary_key=True, index=True, default=lambda: str(uuid4())
+    )
+    created_at: Mapped[DateTime] = mapped_column(
+        DateTime, default=func.now(), nullable=False
+    )
+    updated_at: Mapped[Optional[DateTime]] = mapped_column(
+        DateTime, default=None, nullable=True, onupdate=func.now()
+    )

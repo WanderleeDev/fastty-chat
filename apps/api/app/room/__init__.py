@@ -1,4 +1,4 @@
 from .router import room_router
-from .models import Room, TimestampMixin
+from .models import Room, BaseModel
 
-__all__ = ["room_router", "Room", "TimestampMixin"]
+__all__ = ["room_router", "Room", "BaseModel"]
